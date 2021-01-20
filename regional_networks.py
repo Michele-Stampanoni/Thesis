@@ -214,7 +214,7 @@ pos = nx.spring_layout(g5)
 nx.draw_networkx_nodes(g5, pos, node_size = 50)
 
 # edges
-nx.draw_networkx_edges(g5, pos, edgelist = g5.large, width=2, edge_color = "red")
+nx.draw_networkx_edges(g5, pos, edgelist = g5.large, width=4, edge_color = "red")
 nx.draw_networkx_edges(g5, pos, edgelist = g5.small, width=2, alpha=0.5, 
                        edge_color="blue")
 
@@ -229,6 +229,13 @@ plt.show()
 g5.degree()
 for node in g5.nodes():
     print(node, g5.degree(node))
+
+g5.degree(weight = "weight")
+g5.size(weight = "weight")
+
+
+g5.add_node("Germany", status = "Vulnerable")
+g5.nodes["Germany"]["status"]
 
 
 nx.number_connected_components(g5)
@@ -307,8 +314,8 @@ g7.add_edge("Germany", "Russia", weight = 0.08)
 g7.add_edge("France", "Netherlands", weight = 0.06)
 g7.add_edge("Austria", "Germany", weight = 0.05)
 
-elarge = [(u, v) for (u, v, d) in g7.edges(data=True) if d["weight"] > 0.08]
-esmall = [(u, v) for (u, v, d) in g7.edges(data=True) if d["weight"] <= 0.08]
+g7.large = [(u, v) for (u, v, d) in g7.edges(data=True) if d["weight"] > 0.08]
+g7.small = [(u, v) for (u, v, d) in g7.edges(data=True) if d["weight"] <= 0.08]
 
 # positions for all nodes
 pos = nx.spring_layout(g7)  
@@ -317,8 +324,8 @@ pos = nx.spring_layout(g7)
 nx.draw_networkx_nodes(g7, pos, node_size = 50)
 
 # edges
-nx.draw_networkx_edges(g7, pos, edgelist = elarge, width=2, edge_color = "red")
-nx.draw_networkx_edges(g7, pos, edgelist = esmall, width=2, alpha=0.5, 
+nx.draw_networkx_edges(g7, pos, edgelist = g7.large, width=2, edge_color = "red")
+nx.draw_networkx_edges(g7, pos, edgelist = g7.small, width=2, alpha=0.5, 
                        edge_color="blue")
 
 # labels
@@ -340,35 +347,46 @@ import matplotlib.pyplot as plt
 
 
 #weighted graph 
-g7 = nx.Graph()
+g8 = nx.Graph()
 
-g7.add_edge("Germany", "Netherlands", weight = 0.17)
-g7.add_edge("France", "Germany", weight = 0.13)
-g7.add_edge("Netherlands", "United Kingdom", weight = 0.13)
-g7.add_edge("France", "Spain", weight = 0.10)
-g7.add_edge("France", "United Kingdom", weight = 0.10)
-g7.add_edge("United Kingdom", "United States", weight = 0.10)
-g7.add_edge("Germany", "United Kingdom", weight = 0.08)
-g7.add_edge("Germany", "Russia", weight = 0.08)
-g7.add_edge("France", "Netherlands", weight = 0.06)
-g7.add_edge("Austria", "Germany", weight = 0.05)
+g8.add_edge("Asia", "Africa", weight = 0.09)
+g8.add_edge("Asia", "Europe", weight = 10.32)
+g8.add_edge("Asia", "Latin America", weight = 0)
+g8.add_edge("Asia", "Middle East", weight = 1.26)
+g8.add_edge("Asia", "Oceania", weight = 0.77)
+g8.add_edge("Europe", "Africa", weight = 5.61)
+g8.add_edge("Europe", "Latin America", weight = 0.13)
+g8.add_edge("Europe", "Middle East", weight = 16.61)
+g8.add_edge("Europe", "Oceania", weight = 0.01)
+g8.add_edge("Latin America", "Africa", weight = 0)
+g8.add_edge("Latin America", "Middle East", weight = 0)
+g8.add_edge("Latin America", "Oceania", weight = 0)
+g8.add_edge("Middle East", "Africa", weight = 0.16)
+g8.add_edge("Middle East", "Oceania", weight = 0)
+g8.add_edge("Oceania", "Africa", weight = 0)
+g8.add_edge("North America", "Africa", weight = 0.1)
+g8.add_edge("North America", "Asia", weight = 18.00)
+g8.add_edge("North America", "Europe", weight = 16.31)
+g8.add_edge("North America", "Latin America", weight = 28.47)
+g8.add_edge("North America", "Middle East", weight = 0.18)
+g8.add_edge("North America", "Oceania", weight = 2.05)
 
-elarge = [(u, v) for (u, v, d) in g7.edges(data=True) if d["weight"] > 0.08]
-esmall = [(u, v) for (u, v, d) in g7.edges(data=True) if d["weight"] <= 0.08]
+g8.large = [(u, v) for (u, v, d) in g8.edges(data=True) if d["weight"] > 1]
+g8.small = [(u, v) for (u, v, d) in g8.edges(data=True) if d["weight"] <= 1]
 
 # positions for all nodes
-pos = nx.spring_layout(g7)  
+pos = nx.spring_layout(g8)  
 
 # nodes
-nx.draw_networkx_nodes(g7, pos, node_size = 50)
+nx.draw_networkx_nodes(g8, pos, node_size = 50)
 
 # edges
-nx.draw_networkx_edges(g7, pos, edgelist = elarge, width=2, edge_color = "red")
-nx.draw_networkx_edges(g7, pos, edgelist = esmall, width=2, alpha=0.5, 
+nx.draw_networkx_edges(g8, pos, edgelist = g8.large, width=2, edge_color = "red")
+nx.draw_networkx_edges(g8, pos, edgelist = g8.small, width=2, alpha=0.5, 
                        edge_color="blue")
 
 # labels
-nx.draw_networkx_labels(g7, pos, font_size=10, font_family="sans-serif")
+nx.draw_networkx_labels(g8, pos, font_size=10, font_family="sans-serif")
 
 plt.axis("off")
 plt.show()
