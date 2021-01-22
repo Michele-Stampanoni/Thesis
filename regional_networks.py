@@ -20,6 +20,7 @@ g1.add_edge("France", "India", weight = 0.08)
 g1.add_edge("Singapore", "Thailand", weight = 0.07)
 g1.add_edge("Singapore", "Vietnam", weight = 0.04)
 
+
 g1.large = [(u, v) for (u, v, d) in g1.edges(data=True) if d["weight"] > 0.08]
 g1.small = [(u, v) for (u, v, d) in g1.edges(data=True) if d["weight"] <= 0.08]
 
@@ -41,8 +42,10 @@ plt.axis("off")
 plt.show()
 
 
-## Network Analysis
-g1.degree()
+## Network Value
+len(g1.nodes)
+nvf_asia_metcalfe = len(g1.nodes)**2
+nvf_asia_reed = (2**len(g1.nodes)) - 1
 
 
 
@@ -87,8 +90,10 @@ plt.axis("off")
 plt.show()
 
 
-## Network Analysis
-g2.degree()
+## Network Value
+len(g2.nodes)
+nvf_africa_metcalfe = len(g2.nodes)**2
+nvf_africa_reed = (2**len(g2.nodes)) - 1
 
 
 
@@ -133,8 +138,10 @@ plt.axis("off")
 plt.show()
 
 
-## Network Analysis
-g3.degree()
+## Network Value
+len(g3.nodes)
+nvf_oceania_metcalfe = len(g3.nodes)**2
+nvf_oceania_reed = (2**len(g3.nodes)) - 1
 
 
 
@@ -179,8 +186,10 @@ plt.axis("off")
 plt.show()
 
 
-## Network Analysis
-g4.degree()
+## Network Value
+len(g4.nodes)
+nvf_namerica_metcalfe = len(g4.nodes)**2
+nvf_namerica_reed = (2**len(g4.nodes)) - 1
 
 
 
@@ -221,10 +230,17 @@ nx.draw_networkx_edges(g5, pos, edgelist = g5.small, width=2, alpha=0.5,
 # labels
 nx.draw_networkx_labels(g5, pos, font_size=10, font_family="sans-serif")
 
+# plot
 plt.axis("off")
 plt.show()
 
 
+## Network Value
+len(g5.nodes)
+nvf_mideast_metcalfe = len(g5.nodes)**2
+nvf_mideast_reed = (2**len(g5.nodes)) - 1
+
+ 
 ## Network Analysis
 g5.degree()
 for node in g5.nodes():
@@ -234,18 +250,9 @@ g5.degree(weight = "weight")
 g5.size(weight = "weight")
 
 
+
 g5.add_node("Germany", status = "Vulnerable")
 g5.nodes["Germany"]["status"]
-
-
-nx.number_connected_components(g5)
-g5.comps = nx.connected_components(g5)
-for c in g5.comps:
-    print(len(c))
-    
-g5.comp = list(nx.connected_components(g5))[0]
-g5.comp = nx.subgraph(g5, g5.comp)
-
 
 
 ### Latin American Network 
@@ -285,12 +292,15 @@ nx.draw_networkx_edges(g6, pos, edgelist = g6.small, width=2, alpha=0.5,
 # labels
 nx.draw_networkx_labels(g6, pos, font_size=10, font_family="sans-serif")
 
+# plot
 plt.axis("off")
 plt.show()
 
 
 ## Network Analysis
-g6.degree()
+len(g6.nodes)
+nvf_lamerica_metcalfe = len(g6.nodes)**2
+nvf_lamerica_reed = (2**len(g6.nodes)) - 1
 
 
 
@@ -331,16 +341,19 @@ nx.draw_networkx_edges(g7, pos, edgelist = g7.small, width=2, alpha=0.5,
 # labels
 nx.draw_networkx_labels(g7, pos, font_size=10, font_family="sans-serif")
 
+# plot
 plt.axis("off")
 plt.show()
 
 
-## Network Analysis
-g7.degree()
+## Network Value
+len(g7.nodes)
+nvf_europe_metcalfe = len(g7.nodes)**2
+nvf_europe_reed = (2**len(g7.nodes)) - 1
 
 
 
-### International Network 
+### Continental Network 
 
 import networkx as nx 
 import matplotlib.pyplot as plt
@@ -388,8 +401,16 @@ nx.draw_networkx_edges(g8, pos, edgelist = g8.small, width=2, alpha=0.5,
 # labels
 nx.draw_networkx_labels(g8, pos, font_size=10, font_family="sans-serif")
 
+# plot
 plt.axis("off")
 plt.show()
+
+
+## Network Value 
+len(g8.nodes)
+nvf_global_metcalfe = len(g8.nodes)**2
+nvf_global_reed = (2**len(g8.nodes)) - 1
+
 
 
 
