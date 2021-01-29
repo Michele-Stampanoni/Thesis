@@ -78,12 +78,13 @@ class Graph:
         return DegreeView(self)
     
    
-    
+   
+""" asia_net = (config['asia_nodes']['3'], config['asia_nodes']['5'])
+G.add_edge(*asia_net)
+G.add_edges_from([(1, 2), (1, 3)] """
+
 
 G = Graph()
-asia_net = (config['asia_nodes']['3'], config['asia_nodes']['5'])
-G.add_edge(*asia_net)
-G.add_edges_from([(1, 2), (1, 3)])
 G.add_edges_from([(config['eu_nodes']['1'], config['eu_nodes']['4']), 
                   (config['eu_nodes']['3'], config['eu_nodes']['6']),
                   (config['eu_nodes']['4'], config['eu_nodes']['7']),
