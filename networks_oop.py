@@ -1,12 +1,10 @@
-### Networks
+### Regional networks
 
 import networkx as nx
 from networkx.classes.reportviews import NodeView, EdgeView, DegreeView
 from networkx.exception import NetworkXError
-import networkx.convert as convert
 from dataclasses import dataclass
 import excel_data 
-import config_parser
 
 
 class Graph:
@@ -98,6 +96,11 @@ class Graph:
     
     
 ### European Network using TG Data imported using pandas as a dataframe  
+""" The problem with this method is that an error states that edges_eu() is not defined, 
+    even though it is defined in the excel_data.py file. When attempting to define edges_eu() 
+    within the above Graph Class, I encounter the issue of defining the net_eu dataframe which contains the data. 
+    So I am at a bit of a cross roads as to how to proceed, as I'm not sure how to 'define' the dataframe. """  
+
 G = Graph()
 G.add_edges_from([(eval("str(edges_eu().loc[[0], 'Node1'])[5:12]"),
                    eval("str(edges_eu().loc[[0], 'Node2'])[5:16]")),
