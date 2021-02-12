@@ -1,4 +1,4 @@
-## Functions 
+## Network value functions that are to be tested in the test.py file
 
 #import networks_oop
         
