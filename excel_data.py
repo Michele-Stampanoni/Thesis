@@ -13,8 +13,8 @@ net_africa = pd.read_excel("C:/Users/27763/Documents/Masters/Thesis/Data/gig_re_
     
 
 
-### Defining the edges as functions so they can be used in the class object, 
-### but it doesnt run smoothly as of yet
+### Below functions are defined to extract the edges for each region. 
+### Tried to call these functions in the Graph Class in network_oop.py, but to no avail. 
 
 def edges_eu():
     return net_eu[["Node1", "Node2", "Weight"]]
