@@ -1,4 +1,4 @@
-### Testing graph functions:
+### Tests the network value functions from functions.py
 
 
 import unittest 
