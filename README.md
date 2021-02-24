@@ -1,6 +1,12 @@
 # Economics of Cybersecurity
 
-This repository is dedicated to my thesis on the economics of cybersecurity
+This repository is dedicated to my thesis on the economics of cybersecurity. 
+
+The objectives for the thesis are twofold:
+
+1)To create an Internet network using TeleGeography Internet traffic data
+
+2)To simulate an attack and defence model which is applied to the global Internet data
 
 ## Installation
 
