@@ -10,7 +10,7 @@ The objectives for the thesis are twofold:
 
 ## Installation
 
-Use the package manager https://networkx.org/documentation/stable/install.html to install networkx.
+Use the following link https://networkx.org/documentation/stable/install.html to install NetworkX and get access to the source code.
 
 ```bash
 pip install networkx
